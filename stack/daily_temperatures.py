@@ -19,6 +19,8 @@ Output: [1,1,0]
 
 class Solution:
     def dailyTemperatures(self, temperatures: list[int]) -> list[int]:
+        # Time Complexity O(2n) ~ O(n)
+        # Space Complexity O(n)
         res = [0 for _ in range(len(temperatures))]
         stack = list()
 
@@ -31,6 +33,8 @@ class Solution:
         return res
 
     def dailyTemperaturesBruteForce(self, temperatures: list[int]) -> list[int]:
+        # Time Complexity O(n^2)
+        # Space Complexity O(n)
         res = [0 for _ in range(len(temperatures))]
 
         for i in range(len(temperatures)):
