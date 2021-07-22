@@ -24,7 +24,7 @@ class ListNode:
         self.next = next
 
 class Solution:
-    # Time Complexity O(n)
+    # Time Complexity O(m) or O(n) depending on size of two linked lists, basically it will be the smallest size
     # Space Complexity O(1)
     def mergeTwoListsRecursive(self, l1: ListNode, l2: ListNode) -> ListNode:
 
@@ -63,3 +63,21 @@ class Solution:
             dummy.next = l1
 
         return head.next
+
+# MORE ABOUT SPACE COMPLEXITY
+"""
+You are absolutely right that you are going to need Θ(n) storage space to hold the result of merging two lists of total 
+length n. But how much of that storage space was already there before the function started running, and how much of that 
+storage space is new? You already had two lists of n total elements, so you already were using Θ(n) space before you 
+started this algorithm, and when you're done you have the same lists lying around, just rewired so that the next 
+pointers might be pointing to different places. As a result, the amount of memory you needed to allocate for this 
+procedure is not Θ(n), but rather Θ(1).
+
+More generally, it's common when measuring space complexity to ignore the space used by the inputs to the problem, 
+because in some sense that space cost is unavoidable and there's nothing you can do to eliminate it.
+
+One piece of advice going forward: if you write something like O(1) or O(n), it's often a good idea to make clear 
+whether you're measuring time or space. For example, it's clearer to say that the procedure needs O(n) memory or O(1) 
+time rather than to say that the procedure "is" O(n) or "is" O(1), since it's unclear what you're measuring with 
+the big-O notation when you do that.
+"""
